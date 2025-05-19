@@ -1,20 +1,30 @@
 import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function SenderWindow({ base, nextSeqNum, max }) {
-  const windowPackets = Array.from({ length: max }, (_, i) => base + i+1);
+  const windowPackets = Array.from({ length: max }, (_, i) => base + i + 1);
 
   return (
-    <div className="border p-4 mb-4">
-      <h2 className="text-lg font-bold">Sender Window</h2>
-      <div className="flex gap-2 mt-2">
-        {windowPackets.map((seq) => (
-          <div
-            key={seq}
-            className={`w-12 h-12 flex items-center justify-center border rounded ${seq < nextSeqNum ? 'bg-blue-300' : 'bg-white'}`}
-          >
-            {seq}
-          </div>
-        ))}
+    <div className="border-2 border-gray-700 rounded-xl p-6 mb-8 bg-gray-800">
+      <h2 className="text-xl font-bold text-gray-100 mb-4">Sender Window</h2>
+      <div className="flex gap-3 mt-4">
+        <AnimatePresence>
+          {windowPackets.map((seq) => (
+            <motion.div
+              key={seq}
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              className={`w-14 h-14 flex items-center justify-center border-2 rounded-lg font-bold ${
+                seq < nextSeqNum 
+                  ? 'bg-blue-500 border-blue-400 text-white' 
+                  : 'bg-gray-700 border-gray-600 text-gray-300'
+              }`}
+            >
+              {seq}
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </div>
     </div>
   );

@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+
+
+.packet-container {
+  position: relative;
+  height: 200px;
+}
+
+.packet-animation {
+  position: absolute;
+  transition: all 0.5s ease;
+}
