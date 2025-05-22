@@ -1,6 +1,6 @@
-@import "tailwindcss";
-
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .packet-container {
   position: relative;
@@ -10,4 +10,5 @@
 .packet-animation {
   position: absolute;
   transition: all 0.5s ease;
+  z-index: 50;
 }

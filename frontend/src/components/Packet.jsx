@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-export default function Packet({ seq, isAcknowledging = false }) {
+export default function Packet({ seq, data, isAcknowledging = false }) {
   const variants = {
     initial: {
       y: isAcknowledging ? 0 : -100,
@@ -32,7 +32,7 @@ export default function Packet({ seq, isAcknowledging = false }) {
       }}
       className="w-14 h-14 bg-yellow-500 border-2 border-yellow-400 flex items-center justify-center rounded-lg shadow-lg text-gray-900 font-bold"
     >
-      {seq}
+      {data}
     </motion.div>
   );
 }
