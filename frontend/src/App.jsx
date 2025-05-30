@@ -93,7 +93,7 @@ export default function App() {
         </div>
 
         <div className="space-y-8">
-          <SenderWindow base={status.oldestAck} nextSeqNum={status.nextSeqNum} max={max} />
+          <SenderWindow base={status.oldestAck} nextSeqNum={status.nextSeqNum} max={max} msim={null} />
           <ReceiverBuffer buffer={status.receiverBuffer} />
           
           <AnimatePresence>

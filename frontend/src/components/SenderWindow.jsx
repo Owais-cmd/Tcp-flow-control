@@ -1,8 +1,13 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function SenderWindow({ base, nextSeqNum, max }) {
-  const windowPackets = Array.from({ length: max }, (_, i) => base + i + 1);
+export default function SenderWindow({ base, nextSeqNum, max ,msim}) {
+  let windowPackets=[]
+  if(msim!==null){
+    windowPackets = Array.from({ length:  msim-base }, (_, i) => base + i + 1);
+  }else{
+    windowPackets = Array.from({ length:  max }, (_, i) => base + i + 1);
+  }
 
   return (
     <div className="border-2 border-gray-700 rounded-xl p-6 mb-8 bg-gray-800">
