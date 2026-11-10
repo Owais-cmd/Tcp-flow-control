@@ -142,7 +142,7 @@ export default function MessageSimulator() {
 
           
 
-          <label className="mr-2">Message:</label>
+          <label className="mr-2"> Message:</label>
           <input
             type="text"
             value={message}
